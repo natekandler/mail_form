@@ -1,5 +1,5 @@
 require "mail_form/railtie"
 
 module MailForm
-  # Your code goes here...
+  autoload :Base, "mail_form/base"
 end
