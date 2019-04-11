@@ -1,3 +1,4 @@
 class SampleMail < MailForm::Base
-  attributes :name, :email
+  attributes :name, :email, :nickname
+  validates :nickname, absence: {message: "is invalid"}
 end

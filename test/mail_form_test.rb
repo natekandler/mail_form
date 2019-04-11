@@ -49,4 +49,10 @@ class MailForm::Test < ActiveSupport::TestCase
     expected_body = "Contact\r\n  Name:\r\n  \r\n  Email:\r\n  user@example.com\r\n"
     assert_match expected_body, mail.body.encoded
   end
+
+  test "validates absence of nickname" do
+    sample = SampleMail.new(nickname: "Spam")
+    assert !sample.valid?
+    assert_equal ["is invalid"], sample.errors[:nickname]
+  end
 end
